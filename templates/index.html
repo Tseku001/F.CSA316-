@@ -1,24 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>To-Do Reminder App</title>
-    <style>
-        body { font-family: Arial, sans-serif; padding: 20px; }
-        input { padding: 5px; width: 250px; }
-        button { padding: 5px 10px; }
-        ul { list-style-type: none; padding: 0; }
-        li { margin: 5px 0; }
-        .done { text-decoration: line-through; color: gray; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To-Do Reminder App</title>
+<link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <h1>To-Do Reminder App</h1>
+<header>
+  <h1>📝 To-Do Reminder App</h1>
+  <button id="themeToggle">🌙 Dark Mode</button>
+</header>
+
+<section id="taskSection">
+  <div class="task-input-container">
     <input type="text" id="taskInput" placeholder="Шинэ task оруулна уу">
-    <button onclick="addTask()">Нэмэх</button>
+    <button id="addTaskBtn">Нэмэх</button>
+  </div>
 
-    <ul id="taskList"></ul>
+  <div class="filter-container">
+    <button class="filter-btn" data-filter="all">Бүгд</button>
+    <button class="filter-btn" data-filter="active">Идэвхтэй</button>
+    <button class="filter-btn" data-filter="done">Дууссан</button>
+  </div>
 
-    <script src="/static/script.js"></script>
+  <ul id="taskList">
+    <li class="task-item" data-id="1">
+      <span class="task-title">Жишээ Task 1</span>
+      <button class="doneBtn">Done</button>
+      <button class="deleteBtn">Delete</button>
+    </li>
+    <li class="task-item done" data-id="2">
+      <span class="task-title">Жишээ Task 2</span>
+      <button class="doneBtn">Done</button>
+      <button class="deleteBtn">Delete</button>
+    </li>
+    <li class="task-item" data-id="3">
+      <span class="task-title">Жишээ Task 3</span>
+      <button class="doneBtn">Done</button>
+      <button class="deleteBtn">Delete</button>
+    </li>
+    <li class="task-item" data-id="4">
+      <span class="task-title">Жишээ Task 4</span>
+      <button class="doneBtn">Done</button>
+      <button class="deleteBtn">Delete</button>
+    </li>
+    <li class="task-item done" data-id="5">
+      <span class="task-title">Жишээ Task 5</span>
+      <button class="doneBtn">Done</button>
+      <button class="deleteBtn">Delete</button>
+    </li>
+    <li class="task-item" data-id="6">
+      <span class="task-title">Жишээ Task 6</span>
+      <button class="doneBtn">Done</button>
+      <button class="deleteBtn">Delete</button>
+    </li>
+    <li class="task-item done" data-id="7">
+      <span class="task-title">Жишээ Task 7</span>
+      <button class="doneBtn">Done</button>
+      <button class="deleteBtn">Delete</button>
+    </li>
+    <li class="task-item" data-id="8">
+      <span class="task-title">Жишээ Task 8</span>
+      <button class="doneBtn">Done</button>
+      <button class="deleteBtn">Delete</button>
+    </li>
+    <li class="task-item done" data-id="9">
+      <span class="task-title">Жишээ Task 9</span>
+      <button class="doneBtn">Done</button>
+      <button class="deleteBtn">Delete</button>
+    </li>
+    <li class="task-item" data-id="10">
+      <span class="task-title">Жишээ Task 10</span>
+      <button class="doneBtn">Done</button>
+      <button class="deleteBtn">Delete</button>
+    </li>
+  </ul>
+</section>
+
+<!-- Modal for editing -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Edit Task</h2>
+    <input type="text" id="editInput">
+    <button id="saveEditBtn">Save</button>
+  </div>
+</div>
+
+<!-- Toast notifications -->
+<div id="toast"></div>
+
+<footer>
+  <p>© 2025 To-Do App | Build a big HTML/CSS/JS App</p>
+</footer>
+
+<script src="/static/script.js"></script>
 </body>
 </html>
